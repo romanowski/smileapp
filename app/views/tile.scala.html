@@ -1,0 +1,14 @@
+@(tileData: model.TileRenderer)
+
+
+<div class="tile">
+    <div class="icon-box">
+    @tileData.image
+    </div>
+    <div class="tile-content">
+        <div class="header">
+        @tileData.headerString
+        </div>
+        @tileData.content
+    </div>
+</div>

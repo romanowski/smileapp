@@ -1,0 +1,14 @@
+@(uc: model.User.UserChallenge, challenge: model.ChallengeAction.Challenge)(implicit UserService: service.UserService)
+
+<div>
+<div class="desc">
+    @challenge.desc
+</div>
+</div>
+
+@for((action, done) <- UserService.challengeProgress(uc)) {
+    <div>
+    @actionView(action, done)
+    </div>
+}
+

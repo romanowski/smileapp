@@ -1,0 +1,11 @@
+@(action: model.ChallengeAction.Action, done: Boolean)
+
+<div class="action">
+@actionButton(action.id){
+
+    @if(!done) {
+        <div class="done-box"></div>
+    }
+    <img src= @action.image />
+}
+</div>

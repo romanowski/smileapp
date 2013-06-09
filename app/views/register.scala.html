@@ -1,0 +1,34 @@
+@(data: Form[model.User.User])
+@import helper._
+
+@implicitFieldConstructor = @{
+    twitterBootstrap.twitterBootstrapFieldConstructor
+}
+
+@main("SmileApp") {
+    <div class="middle">
+    @form(action = routes.Application.register) {
+
+        @inputText(
+            field = data("login"),
+            args = '_label -> "Twój login:", 'placeholder -> "np. Krzyś-pracuś"
+        )
+
+        @inputPassword(
+            field = data("password"),
+            args = '_label -> "Twoje chasło"
+        )
+
+        @inputText(
+            field = data("image"),
+            args = '_label -> "Twój avatar", 'placeholder -> "ala.makota.pl/ala.gif"
+        )
+
+
+        <p >
+        <input class="btn" type="submit" id="submit">
+        <p>
+
+    }
+    </div>
+}

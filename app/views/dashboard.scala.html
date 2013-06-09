@@ -1,0 +1,44 @@
+@(friendFeed: model.FriendFeed, taskFeed: model.TaskFeed, user: model.User.User)(implicit UserService: service.UserService, ActionChallengeService: service.ActionChallengeService)
+
+
+@main("Dashboard") {
+    <div class="middle">
+        <div class="dashboard page">
+            <div class="">
+            @for(uc <- UserService.done(user.id)) {
+                @image(ActionChallengeService.challengeForID(uc.id).get.badge)
+            }
+            </div>
+            <div class="content">
+                asdasdasdsa
+            </div>
+            <div class="profile">
+                <div class="profileImage">
+                    <img src= @user.image />
+                </div>
+                <div class="name">
+                @user.name
+                </div>
+            </div>
+        </div>
+
+        <div class="friend-feed pane-inactive page">
+        @pane(friendFeed.friendFeed.map(tile.apply))
+        </div>
+
+        <div class="task-feed pane-active page">
+            <div class="what-do-you-do">
+                Co dziś zrobiłeś?
+            </div>
+            <div class="done-today">
+            @for(action <- ActionChallengeService.mainActions) {
+                @modelviews.actionButton(action.id){
+
+                    <img src= @action.image >
+                }
+            }
+            </div>
+            @pane(taskFeed.taskFeed.map(tile.apply))
+        </div>
+    </div>
+}

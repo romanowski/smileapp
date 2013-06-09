@@ -1,0 +1,148 @@
+@iconSize: 100px;
+@paneSize: 624px;
+@dashboardWidth: @iconSize * 4 + @paneSize;
+
+.content {
+  margin: 10px auto 0 auto;
+  width: @dashboardWidth;
+}
+
+.middle {
+  position: relative;
+}
+
+.dashboard {
+  width: @dashboardWidth;
+  position: absolute;
+  top: @iconSize;
+
+  .badges {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  .content {
+    position: absolute;
+    top: 0px;
+    left: @iconSize;
+  }
+  .profile {
+    position: absolute;
+    top: 0px;
+    left: @dashboardWidth - 2 * @iconSize;
+  }
+
+  .profileImage {
+    img {
+      width: @iconSize * 1.5;
+      height: auto;
+    }
+    margin: 0.25 * @iconSize 0px 0px 0.25 * @iconSize;
+  }
+
+  .name {
+    margin: 10px 0px 0px 0.40 * @iconSize;
+    font-size: 140%;
+  }
+}
+
+.page {
+  background: #f5f5f5;
+  box-shadow: -4px -4px 2px #888888;
+}
+
+.pane-inactive {
+  position: absolute;
+  left: @iconSize;
+  z-index: 100;
+  .tile {
+    margin: 5px;
+    height: @iconSize;
+  }
+}
+
+.pane-active {
+  position: absolute;
+  left: 2 * @iconSize;
+  z-index: 200;
+}
+
+.pane {
+  width: @paneSize;
+  min-height: 800px;
+}
+
+.tile {
+  position: relative;
+  box-shadow: -2px -2px 1px #aaaaaa;
+  margin: 5px 0 0 5px;
+
+  .icon-box {
+    height: @iconSize;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: @iconSize;
+    width: @iconSize;
+  }
+
+  .header {
+    font-size: 140%;
+    margin-left: 70px;
+  }
+
+  .tile-content {
+    background: #d3d3d3;
+    padding-left: @iconSize;
+    min-height: 200px;
+  }
+
+}
+
+.action {
+  position: relative;
+  float: left;
+  img {
+    width: @iconSize / 2;
+    height: auto;
+  }
+  .done-box {
+    width: @iconSize / 2;
+    height: @iconSize / 2;
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    background: #aaaaaa;
+    opacity: 0.5;
+  }
+}
+
+.mock-image {
+  width: @iconSize;
+  height: @iconSize;
+}
+
+.task-feed {
+  .done-today {
+    margin: 10px;
+    img {
+      width: @iconSize;
+      height: auto;
+    }
+  }
+
+  .what-do-you-do {
+    font-size: 200%;
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+
+.task-feed {
+
+}
+
+.friend-feed {
+  top: @iconSize /2;
+}
