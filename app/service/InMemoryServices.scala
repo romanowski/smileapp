@@ -26,14 +26,16 @@ object InMemoryServices {
 
   var actions: List[Action] = Action("Zagadaj", "", imagePath("actions/person.png")) :: Nil
   var users: List[User] = User("https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/195316_100000522472208_416088632_q.jpg", "a@a.pl", "ala123") :: Nil
-  var userChallenges: List[UserChallenge] =
-    UserChallenge(users.head.id, challenges.head.id, Status.Pending, Some(new DateTime().minus(Period.days(1)))) ::
-      challenges.tail.map(c => UserChallenge(users.head.id, c.id, Status.Done))
 
   var challengeActions: List[ActionChallenge] =
     ActionChallenge(challenges.head.id, actions.head.id, 1) ::
       ActionChallenge(challenges.head.id, actions.head.id, 2) :: Nil
   var userDoneAction: List[ActionDone] = ActionDone(users.head.id, new DateTime(), actions.head.id, 5) :: Nil
+
+  var userChallenges: List[UserChallenge] =
+    UserChallenge(users.head.id, challenges.head.id, Status.Pending, Some(new DateTime().minus(Period.days(1)))) ::
+      challenges.tail.map(c => UserChallenge(users.head.id, c.id, Status.Done))
+
 
 
   implicit def ActionChallengeService: ActionChallengeService = new ActionChallengeService {
